@@ -2,13 +2,10 @@ const express = require("express");
 const app = express();
 app.use(express.json())
 //First, import the router into app.js:
+const usersRouter = require("./users/users.router")
 const pastesRouter = require("./pastes/pastes.router");
 
-// TODO: Follow instructions in the checkpoint to implement ths API.
-const pastes = require("./data/pastes-data");
-
-
-
+app.use("/users", usersRouter)
 app.use("/pastes", pastesRouter)
 
 // New middleware function to validate the request body
